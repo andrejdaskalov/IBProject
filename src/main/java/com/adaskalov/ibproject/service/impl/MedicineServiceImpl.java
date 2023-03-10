@@ -4,7 +4,6 @@ import com.adaskalov.ibproject.exception.MedicineNotFoundException;
 import com.adaskalov.ibproject.model.Medicine;
 import com.adaskalov.ibproject.repository.MedicineRepository;
 import com.adaskalov.ibproject.service.MedicineService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

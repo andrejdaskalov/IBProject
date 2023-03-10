@@ -1,17 +1,11 @@
 package com.adaskalov.ibproject.web;
 
 import com.adaskalov.ibproject.exception.ManufacturerNotFoundException;
-import com.adaskalov.ibproject.exception.PrescriptionNotFoundException;
 import com.adaskalov.ibproject.model.Manufacturer;
-import com.adaskalov.ibproject.model.Medicine;
-import com.adaskalov.ibproject.model.Prescription;
-import com.adaskalov.ibproject.model.User;
 import com.adaskalov.ibproject.service.ManufacturerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/manufacturer")

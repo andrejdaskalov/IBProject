@@ -3,7 +3,6 @@ package com.adaskalov.ibproject.service;
 import com.adaskalov.ibproject.exception.PrescriptionNotFoundException;
 import com.adaskalov.ibproject.exception.UserNotFoundException;
 import com.adaskalov.ibproject.model.Prescription;
-import com.adaskalov.ibproject.model.User;
 
 import java.util.List;
 

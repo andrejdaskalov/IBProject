@@ -1,6 +1,5 @@
 package com.adaskalov.ibproject.web;
 
-import com.adaskalov.ibproject.exception.MedicineNotFoundException;
 import com.adaskalov.ibproject.exception.PrescriptionNotFoundException;
 import com.adaskalov.ibproject.model.Medicine;
 import com.adaskalov.ibproject.model.Prescription;
