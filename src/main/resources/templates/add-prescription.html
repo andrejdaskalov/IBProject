@@ -1,0 +1,26 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Add Medicine</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<main class="container">
+  <h1 class="h1" th:text="${title}"></h1>
+  <form th:action="@{'/prescription/save/{id}' (id=${prescription?.getId()})}" th:method="post">
+    <label for="patientId" class="form-label">Patient: </label>
+    <select name="patientId" id="patientId" class="form-control">
+      <option th:each="patient:${patients}" th:value="${patient.getEmbg()}" th:text="${patient.getName()}" th:selected="${prescription?.getPatient()?.equals(patient)}"></option>
+    </select>
+    <label for="medicineId" class="form-label">Medicine:</label>
+    <select id="medicineId" name="medicineId" class="form-control">
+      <option th:each="medicine:${medicineList}" th:value="${medicine?.getId()}" th:text="${medicine?.getName()}" th:selected="${prescription?.getMedicine()?.equals(medicine)}"></option>
+    </select>
+    <button class="btn btn-success mt-5" type="submit">Submit</button>
+  </form>
+</main>
+</body>
+</html>
