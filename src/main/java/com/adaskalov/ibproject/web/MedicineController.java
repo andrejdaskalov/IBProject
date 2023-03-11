@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * A controller for managing the Medicine model. It includes CRUD functionality. Route accessible to ADMIN role only. (See SecurityConfig)
+ */
 @Controller
 @RequestMapping("/medicine")
 public class MedicineController {

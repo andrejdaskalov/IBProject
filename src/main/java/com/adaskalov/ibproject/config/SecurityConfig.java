@@ -6,30 +6,29 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Spring Security Configuration Beans.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-//    private final UserService userService;
-
-//    public SecurityConfig(UserService userService) {
-//        this.userService = userService;
-//    }
-
-
+    /**
+     * filters /medicine/**, /manufacturer/** and /account/** routes to ADMIN users, and /prescription/** to DOCTORs. Also enables X.509 authentication.
+     * @param http
+     * @return
+     * @throws Exception
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeHttpRequests(
                 (auth) -> {
                     try {
                         auth
-                                .requestMatchers("/medicine/**","/manufacturer/**","/account/**").hasRole("ADMIN")
+                                .requestMatchers("/medicine/**", "/manufacturer/**", "/account/**").hasRole("ADMIN")
                                 .requestMatchers("/prescription/**").hasRole("DOCTOR")
                                 .anyRequest().authenticated()
                                 .and()
-//                                .formLogin().permitAll()
-//                                .defaultSuccessUrl("/medicine")
-//                                .and()
                                 .x509()
                                 .subjectPrincipalRegex("CN=(.*?)(?:,|$)")
                                 .and()
@@ -42,10 +41,7 @@ public class SecurityConfig {
                         throw new RuntimeException(e);
                     }
                 }
-                );
+        );
         return http.build();
     }
-
-//    @Bean
-//    public UserService userDetailsService() {return userService;}
 }

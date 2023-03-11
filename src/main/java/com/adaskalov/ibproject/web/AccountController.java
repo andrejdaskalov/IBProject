@@ -14,15 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A controller managing the Users. Acessible to ADMIN role. (See SecurityConfig)
+ */
 @Controller
 @RequestMapping("/account")
 public class AccountController {
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
 
-    public AccountController(UserService userService, PasswordEncoder passwordEncoder) {
+    public AccountController(UserService userService) {
         this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/register")

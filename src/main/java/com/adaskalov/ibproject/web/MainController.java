@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ * A controller representing the main entry point in the app. Redirects to appropriate controller or lists prescriptions assigned to user if role is PATIENT.
+ */
 @Controller
 @RequestMapping("/")
 public class MainController {

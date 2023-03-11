@@ -18,11 +18,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -36,7 +34,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User u = userRepository.findById(Long.parseLong(username)).orElseThrow(Exception::new);
         return org.springframework.security.core.userdetails.User.builder()
                 .username(username)
-                .password(passwordEncoder.encode(u.getPassword())) //
+                .password(" ")
                 .roles(u.getType().name())
                 .build();
     }

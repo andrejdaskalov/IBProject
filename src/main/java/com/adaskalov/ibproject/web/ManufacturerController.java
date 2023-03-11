@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * A controller responsible for managing the Manufacturer model. Accessible only to ADMIN role. (See SecurityConfig)
+ */
 @Controller
 @RequestMapping("/manufacturer")
 public class ManufacturerController {

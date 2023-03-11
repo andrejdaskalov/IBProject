@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * A controller responsible for managing Prescriptions. Accessible only to role DOCTOR (See SecurityConfig)
+ */
 @Controller
 @RequestMapping("/prescription")
 public class PrescriptionController {
